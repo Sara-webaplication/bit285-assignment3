@@ -1,0 +1,36 @@
+﻿@using bit285_assignment3_api.Models;
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@model bit285_assignment3_api.Models.User
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "User Account Information";
+}
+<h1>New Account Information</h1>
+<fieldset>
+    <form asp-action="AccountInfo">
+        <div>
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName"/>
+            <span asp-validation-for="FirstName"></span>
+        </div>
+        <div>
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" />
+            <span asp-validation-for="LastName"></span>
+        </div>
+        <div>
+            <label asp-for="EmailAddress"></label>
+            <input asp-for="EmailAddress" />
+            <span asp-validation-for="EmailAddress"></span>
+        </div>
+        <div>
+            <label asp-for="Program"></label>
+            <select asp-for="Program" asp-items="@new  SelectList(Enum.GetNames(typeof(ProgramType)))">
+                <option disabled selected value="">Select a Program</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Create Password" />
+        </div>
+    </form>
+</fieldset>

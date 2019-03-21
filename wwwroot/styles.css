@@ -1,0 +1,48 @@
+﻿body {
+    background-color:cornsilk;
+}
+
+form>div {
+    display: grid;
+    grid-template-columns:100px 1fr auto;
+    grid-gap: .8em;
+    padding: .5em;
+}
+
+label {
+    grid-column:1/2;
+}
+
+input,select {
+    grid-column: 2/3;
+}
+span, [type="button"], [type="submit"]{
+    grid-column:3/4;
+ }
+table {
+    margin-top: 2em;
+    border-spacing: 20px 0;
+}
+
+thead {
+    font-family: Arial,sans-serif;
+    font-weight: bold;
+    color: darkred;
+    font-size: 1.2em;
+}
+
+th {
+    border-bottom: solid thin darkred;
+    padding: 0 1em;
+}
+
+td {
+    text-align: left;
+    padding: 0.3em 0;
+}
+
+a {
+    font-family: Geneva, Arial, Helvetica, sans-serif, ;
+    font-size: 0.8em;
+    color: navy;
+}

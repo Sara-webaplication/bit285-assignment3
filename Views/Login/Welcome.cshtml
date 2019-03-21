@@ -1,0 +1,16 @@
+﻿@model IEnumerable<bit285_assignment3_api.Models.User>
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Welcome";
+}
+<h1>Application Home</h1>
+<h2>User List</h2>
+<table>
+    <thead><tr><th>User</th><th>Program</th></tr></thead>
+    <tbody>
+        @foreach(bit285_assignment3_api.Models.User u in Model)
+        {
+            <tr><td>@u.LastName, @u.FirstName</td><td>@u.Program</td></tr>
+        }
+    </tbody>
+</table>

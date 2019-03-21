@@ -1,0 +1,36 @@
+﻿@model bit285_assignment3_api.ViewModels.UserAdmin
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "User Admin";
+}
+<h1>User Admin</h1>
+<form asp-action="Index">
+    User Name: <input asp-for="@Model.FullName" />
+    <input type="submit" value="Find User" />
+    <a asp-action="CreateUser">New User</a>
+</form>
+<table>
+    <thead><tr><th>User</th><th>Program</th><th>Action</th></tr></thead>
+    <tbody>
+        @foreach (bit285_assignment3_api.Models.User u in Model.Users)
+        {
+            <tr>
+                <td>@u.LastName, @u.FirstName</td>
+                <td>@u.Program</td>
+                <td>
+                    <a asp-action="UpdateUser" asp-route-id="@u.Id">Update</a> |
+                    <a asp-action="RemoveUser" asp-route-id="@u.Id">Remove</a>
+                    <a asp-action="UserActivities" asp-route-id="@u.Id">Activities</a> |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>$( function() {
+        $( "input" ).autocomplete({
+          source: "/api/User/FullName",
+          minLength: 2
+        });
+      });</script>

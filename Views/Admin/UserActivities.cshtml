@@ -1,0 +1,16 @@
+﻿@model bit285_assignment3_api.Models.User
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "userActivities";
+}
+<h1>User Activities</h1>
+<h2>@Model.FullName</h2>
+<table>
+    <thead><tr><th>Date</th><th>Activity</th></tr></thead>
+    <tbody>
+        @foreach(bit285_assignment3_api.Models.Activity u in Model.Activities)
+        {
+            <tr><td>@u.ActivityDate</td><td>@u.Type</td></tr>
+        }
+    </tbody>
+</table>
